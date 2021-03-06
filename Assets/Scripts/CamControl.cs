@@ -36,8 +36,8 @@ public class CamControl : MonoBehaviour
             //move tangential to orbit
             gameObject.transform.Translate(-mouseX, -mouseY, 0, Space.Self);
             //added spiraling compensation
-            gameObject.transform.Translate(0, 0, Mathf.Sqrt(Mathf.Pow(distance, 2) - Mathf.Pow(mouseX, 2)) - distance, Space.Self);
-            gameObject.transform.Translate(0, 0, Mathf.Sqrt(Mathf.Pow(distance, 2) - Mathf.Pow(mouseY, 2)) - distance, Space.Self);
+            gameObject.transform.Translate(0, 0, -Mathf.Sqrt(Mathf.Pow(distance, 2) - Mathf.Pow(mouseX, 2)) + distance, Space.Self);
+            gameObject.transform.Translate(0, 0, -Mathf.Sqrt(Mathf.Pow(distance, 2) - Mathf.Pow(mouseY, 2)) + distance, Space.Self);
             //adjust camera rotation to face focus
             gameObject.transform.LookAt(gameObject.transform.parent.transform);
             // !! causes spiraling camera movement ~~ addressed in added translate
